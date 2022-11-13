@@ -11,6 +11,7 @@ app.on("ready", () => {
         }
     })
     window.loadFile("assets/index.html")
+    window.setBackgroundColor("black")
 })
 
 app.on("window-all-closed", () => {

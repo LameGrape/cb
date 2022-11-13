@@ -16,17 +16,15 @@ ctx.circle = (x, y, radius, stroke = false) => {
     else ctx.fill()
 }
 
-ctx.lineWidth = 8
 ctx.imageSmoothingEnabled = false
-const polen = new Countryball("poland", canvas.width / 4, canvas.height / 2, 100)
-const france = new Countryball("france", canvas.width / 4 + 250, canvas.height / 2, 100)
-
-france.expression = expression.angry
+const polandev = new Countryball("polandev", canvas.width / 4, canvas.height / 2, 100)
+polandev.border = "white"
+polandev.eyeFill = "transparent"
 
 function draw(){
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     requestAnimationFrame(draw)
-    polen.draw(ctx)
-    france.portrait(ctx, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+    ctx.lineWidth = 8
+    polandev.draw(ctx)
 }
 requestAnimationFrame(draw)

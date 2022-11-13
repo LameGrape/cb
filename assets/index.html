@@ -6,6 +6,18 @@
 <body>
     <canvas id="canvas"></canvas>
     <style>
+        @keyframes firstLoad {
+            0%{
+                background: black;
+            }
+            15%{
+                background: #111b61;
+            }
+        }
+        body{
+            background: #111b61;
+            animation: firstLoad 5s linear;
+        }
         #canvas{
             position: absolute;
             left: 0px;
