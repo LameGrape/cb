@@ -16,6 +16,8 @@ class Countryball{
         this.scale = scale
         this.expression = expression.normal
         this.lookAngle = 90
+        this.border = "black"
+        this.eyeFill = "white"
     }
     draw(ctx){
         // Outline
@@ -26,7 +28,7 @@ class Countryball{
         // Flag
         ctx.drawImage(this.flag, this.x - this.scale, this.y - this.scale, this.scale * 2, this.scale * 2)
         ctx.restore()
-        ctx.strokeStyle = "black"
+        ctx.strokeStyle = this.border
         ctx.stroke()
         // Eye calculations
         const eyeDistance = this.scale * 0.35
@@ -35,6 +37,7 @@ class Countryball{
         const eyeY = Math.cos(this.lookAngle * Math.PI / 180) * eyeDistance
         // Left eye
         ctx.beginPath()
+        ctx.fillStyle = this.eyeFill
         ctx.lineCap = "round"
         switch(this.expression){
             case expression.angry:
@@ -58,7 +61,7 @@ class Countryball{
                 ctx.arc(this.x + eyeX + eyeOffset, this.y + eyeY - eyeOffset, this.scale / 5, 0, 2 * Math.PI)
                 break
         }
-            ctx.fill()
+        ctx.fill()
         ctx.stroke()
     }
     portrait(ctx, message){
@@ -86,12 +89,13 @@ class Countryball{
         // Flag
         ctx.drawImage(this.flag, nx - scale, ny - scale, scale * 2, scale * 2)
         ctx.restore()
-        ctx.strokeStyle = "black"
+        ctx.strokeStyle = this.border
         ctx.stroke()
         // Eyes
         const eyeDistance = scale * 0.35
         const eyeOffset = scale * 0.25
         // Left eye
+        ctx.fillStyle = this.eyeFill
         ctx.beginPath()
         switch(this.expression){
             case expression.angry:
